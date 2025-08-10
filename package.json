@@ -1,163 +1,46 @@
 {
   "name": "vue-paycard",
-  "version": "0.7.4",
-  "description": "Credit card component made with Vue.js",
-  "homepage": "https://github.com/Kenjixd/vue-paycard#readme",
-  "author": "Original: Igor Guastalla de Lima <limaguastallaigor@gmail.com>, Arranged: Kenji",
-  "scripts": {
-    "delete-dev:css": "rimraf src/assets/css/style.dev.css",
-    "build:cleancss": "cleancss src/assets/css/style.dev.css -o src/assets/css/style.min.css --source-map",
-    "build:minify": "sass src/assets/css/style.css:src/assets/css/style.dev.css --style=compressed --no-source-map",
-    "build:autoprefix": "postcss src/assets/css/style.dev.css --replace --use autoprefixer",
-    "build": "npm run build:minify && npm run build:autoprefix && npm run build:cleancss && npm run delete-dev:css",
-    "test:unit": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch",
-    "commit": "git-cz",
-    "commit:retry": "git-cz --retry",
-    "commitmsg": "commitlint -e",
-    "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "dependencies": {
-    "vue": "^2.6.14"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
-    "@storybook/addon-a11y": "^6.4.8",
-    "@storybook/addon-controls": "^6.4.8",
-    "@storybook/addon-docs": "^6.4.8",
-    "@storybook/addons": "^6.4.8",
-    "@storybook/theming": "^6.4.8",
-    "@storybook/vue": "^6.4.8",
-    "@vue/cli-plugin-babel": "~4.5.15",
-    "@vue/cli-plugin-eslint": "~4.5.15",
-    "@vue/cli-plugin-unit-jest": "~4.5.15",
-    "@vue/cli-service": "~4.5.15",
-    "@vue/eslint-config-standard": "^6.1.0",
-    "@vue/test-utils": "^1.3.0",
-    "autoprefixer": "^10.4.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.3",
-    "babel-preset-vue": "^2.0.2",
-    "clean-css-cli": "^5.4.2",
-    "commitizen": "^4.2.4",
-    "core-js": "^3.19.3",
-    "eslint": "^7.32.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-vue": "^8.2.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.1.2",
-    "postcss": "^8.4.4",
-    "postcss-cli": "^9.0.2",
-    "rimraf": "^3.0.2",
-    "sass": "^1.44.0",
-    "sass-loader": "^12.4.0",
-    "vue-template-compiler": "^2.6.14"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+  "version": "1.0.0-lib",
+  "description": "Animated credit card component for Vue 3 (fork minimal, Vite library build).",
+  "type": "module",
+  "main": "./dist/vue-paycard.cjs.js",
+  "module": "./dist/vue-paycard.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-paycard.es.js",
+      "require": "./dist/vue-paycard.cjs.js"
     },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "vue/experimental-script-setup-vars": 0
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest",
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/tests/",
-      "/src/assets/"
-    ]
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  },
-  "bugs": {
-    "url": "https://github.com/guastallaigor/vue-paycard/issues"
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
-    "src/*",
-    "*.json",
-    "*.js"
+    "dist",
+    "README.md",
+    "LICENSE",
+    "src"
   ],
   "keywords": [
     "vue",
-    "vuejs",
     "credit-card",
-    "vue-credit-card",
-    "paycard",
-    "vue-paycard",
-    "credit",
-    "card"
+    "ui",
+    "vite",
+    "component"
   ],
   "license": "MIT",
-  "main": "./vue-paycard.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kenjixd/vue-paycard.git"
+  "repository": "github:Kenjixd/vue-paycard",
+  "packageManager": "yarn@4.9.1",
+  "peerDependencies": {
+    "vue": "^3.2.0"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "subject-case": [
-        0,
-        "never",
-        "sentence-case"
-      ],
-      "subject-full-stop": [
-        0,
-        "never",
-        "."
-      ]
-    }
+  "devDependencies": {
+    "@types/node": "^20",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0"
   },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "directories": {
-    "test": "tests"
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "prepublishOnly": "yarn build"
   }
 }
