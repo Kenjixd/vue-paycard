@@ -133,7 +133,7 @@
   "main": "./vue-paycard.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kenjixd/vue-paycard/issues"
+    "url": "git+https://github.com/Kenjixd/vue-paycard.git"
   },
   "commitlint": {
     "extends": [
