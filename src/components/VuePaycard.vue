@@ -153,7 +153,7 @@
       </div>
       <div class="card-item__band"></div>
       <div class="card-item__cvv">
-        <label :for="inputFields.cardCvv" aria-label="Card CVV">
+        <label :for="inputFields.cardCvv" aria-label="Card CVV" style="width: 100% !important;">
           <div class="card-item__cvvTitle">{{ labels.cardCvv }}</div>
           <div class="card-item__cvvBand">
             <span>{{ valueFields.cardCvv }}</span>
@@ -216,6 +216,10 @@ export default {
     setType: {
       type: String,
       default: ''
+    },
+    isCardFlipped: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['get-type'],
@@ -226,7 +230,6 @@ export default {
       focusElementStyle: null,
       currentFocus: null,
       isFocused: false,
-      isCardFlipped: false,
       amexCardPlaceholder: '#### ###### #####',
       fifteenCardPlaceholder: '#### #### #### ###',
       dinersCardPlaceholder: '#### ###### ####',
@@ -269,7 +272,7 @@ export default {
         : this.defaultPlaceholder
     },
     getCreditCardImage () {
-      const path = require(`../assets/images/${this.cardType}.png`)
+      const path = new URL(`../assets/images/${this.cardType}.png`, import.meta.url).href
       return path.default || path
     },
     cardType () {
@@ -347,7 +350,7 @@ export default {
       const numberImage = parseInt(this.backgroundImage)
 
       if (this.isBackgroundImageFromAssets) {
-        const path = require(`../assets/images/${numberImage}.jpg`)
+        const path = new URL(`../assets/images/${numberImage}.jpg`, import.meta.url).href
         return path.default || path
       }
 
@@ -358,7 +361,7 @@ export default {
       if (this.hasRandomBackgrounds) {
         const random = Math.floor(Math.random() * 25 + 1)
 
-        const path = require(`../assets/images/${random}.jpg`)
+        const path = new URL(`../assets/images/${random}.jpg`, import.meta.url).href
         return path.default || path
       }
 
@@ -380,10 +383,10 @@ export default {
           } else {
             this.currentFocus = element.id
           }
-          this.isCardFlipped = element.id === this.inputFields.cardCvv
+          // this.isCardFlipped = element.id === this.inputFields.cardCvv
         })
         element[event]('blur', () => {
-          this.isCardFlipped = !element.id === this.inputFields.cardCvv
+          // this.isCardFlipped = !element.id === this.inputFields.cardCvv
           const timeout = setTimeout(() => {
             if (!self.isFocused) {
               self.currentFocus = null
