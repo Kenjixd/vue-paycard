@@ -1,5 +1,5 @@
 {
-  "name": "@kenjixd/vue-paycard",
+  "name": "vue-paycard",
   "version": "0.7.4",
   "description": "Credit card component made with Vue.js",
   "homepage": "https://github.com/Kenjixd/vue-paycard#readme",
