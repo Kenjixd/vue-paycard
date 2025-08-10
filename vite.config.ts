@@ -7,13 +7,12 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'VuePaycard',
-      fileName: (format) => `vue-paycard.${format}.js`
+      fileName: (format) => `vue-paycard.${format}.js`,
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       external: ['vue'],
-      output: {
-        globals: { vue: 'Vue' }
-      }
+      output: { globals: { vue: 'Vue' } }
     },
     cssCodeSplit: false
   }

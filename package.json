@@ -1,7 +1,6 @@
 {
   "name": "vue-paycard",
   "version": "1.0.0-lib",
-  "description": "Animated credit card component for Vue 3 (fork minimal, Vite library build).",
   "type": "module",
   "main": "./dist/vue-paycard.cjs.js",
   "module": "./dist/vue-paycard.es.js",
@@ -10,37 +9,27 @@
       "import": "./dist/vue-paycard.es.js",
       "require": "./dist/vue-paycard.cjs.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css",
+    "./package.json": "./package.json"
   },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE",
-    "src"
+  "files": ["dist", "README.md", "LICENSE", "src"],
+  "sideEffects": [
+    "./dist/style.css"
   ],
-  "keywords": [
-    "vue",
-    "credit-card",
-    "ui",
-    "vite",
-    "component"
-  ],
-  "license": "MIT",
-  "repository": "github:Kenjixd/vue-paycard",
-  "packageManager": "yarn@4.9.1",
   "peerDependencies": {
     "vue": "^3.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "vue": "^3.4.0",
     "@vitejs/plugin-vue": "^5.0.0",
-    "typescript": "^5",
     "vite": "^5.0.0",
-    "vue": "^3.4.0"
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
   },
   "scripts": {
     "build": "vite build",
     "dev": "vite",
     "prepublishOnly": "yarn build"
-  }
+  },
+  "packageManager": "yarn@4.9.1"
 }
